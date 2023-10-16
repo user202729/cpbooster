@@ -66,6 +66,7 @@ export default class Config {
         aliases: {
           librarychecker: "cpp",
           codeforces: "54",
+          universaloj: "C++23",
           atcoder: "5001",
           omegaup: "cpp17-gcc",
           szkopul: "C++",
@@ -81,6 +82,7 @@ export default class Config {
         aliases: {
           librarychecker: "pypy3",
           codeforces: "31",
+          universaloj: "Python3",
           atcoder: "4006",
           omegaup: "py3",
           szkopul: "Python"
@@ -96,6 +98,7 @@ export default class Config {
         aliases: {
           librarychecker: "java",
           codeforces: "36",
+          universaloj: "Java11",
           atcoder: "4005"
         },
         type: "mixed",
@@ -144,6 +147,7 @@ export default class Config {
         aliases: {
           librarychecker: "rust",
           codeforces: "49",
+          universaloj: "Rust",
           atcoder: "4050"
         },
         type: "compiled",
