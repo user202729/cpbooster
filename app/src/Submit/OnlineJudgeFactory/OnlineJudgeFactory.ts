@@ -17,6 +17,7 @@
  */
 
 import { exit } from "process";
+import LibraryChecker from "./LibraryChecker";
 import AtCoder from "./AtCoder";
 import Codeforces from "./Codeforces";
 import UniversalOJ from "./UniversalOJ";
@@ -33,6 +34,8 @@ export default class OnlineJudgeFactory {
     url = url.toLowerCase();
     if (url.includes("codeforces")) {
       return new Codeforces();
+    } else if (url.includes("yosupo")) {
+          return new LibraryChecker();
     } else if (url.includes("atcoder")) {
       return new AtCoder();
     } else if (url.includes("uoj.ac")) {

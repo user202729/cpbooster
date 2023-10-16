@@ -64,6 +64,7 @@ export default class Config {
         command: "g++ -std=gnu++17 -O2",
         debugCommand: "g++ -std=gnu++17 -DDEBUG -Wshadow -Wall",
         aliases: {
+          librarychecker: "cpp",
           codeforces: "54",
           ucup: "C++23",
           qoj: "C++23",
@@ -82,6 +83,7 @@ export default class Config {
         command: "python3",
         debugCommand: "python3 -O",
         aliases: {
+          librarychecker: "pypy3",
           codeforces: "31",
           ucup: "Python3",
           qoj: "Python3",
@@ -100,6 +102,7 @@ export default class Config {
         debugCommand: "javac",
         runCommand: "java",
         aliases: {
+          librarychecker: "java",
           codeforces: "36",
           ucup: "Java11",
           qoj: "Java11",
@@ -126,6 +129,7 @@ export default class Config {
         command: "ruby",
         debugCommand: "ruby",
         aliases: {
+          librarychecker: "ruby",
           codeforces: "67",
           atcoder: "4049"
         },
@@ -137,6 +141,7 @@ export default class Config {
         command: "msc",
         debugCommand: "msc",
         aliases: {
+          librarychecker: "csharp",
           codeforces: "55",
           atcoder: "4030",
           omegaup: "cs"
@@ -149,6 +154,7 @@ export default class Config {
         command: "rustc",
         debugCommand: "rustc",
         aliases: {
+          librarychecker: "rust",
           codeforces: "49",
           ucup: "Rust",
           qoj: "Rust",
@@ -163,6 +169,7 @@ export default class Config {
         command: "go build",
         debugCommand: "go build",
         aliases: {
+          librarychecker: "cpp",
           codeforces: "32",
           tlx: "Go",
           atcoder: "4026"
@@ -176,6 +183,7 @@ export default class Config {
         debugCommand: "kotlinc",
         runCommand: "kotlin",
         aliases: {
+          librarychecker: "cpp",
           codeforces: "48",
           atcoder: "4032"
         },
@@ -187,6 +195,7 @@ export default class Config {
         debugCommand: "scalac",
         runCommand: "scala",
         aliases: {
+          librarychecker: "cpp",
           codeforces: "20",
           atcoder: "4051"
         },

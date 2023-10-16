@@ -1,4 +1,5 @@
 export enum OnlineJudgeName {
+  librarychecker = "librarychecker",
   codeforces = "codeforces",
   universaloj = "universaloj",
   qoj = "qoj",
