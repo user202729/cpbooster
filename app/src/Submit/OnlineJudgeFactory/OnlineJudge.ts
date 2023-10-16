@@ -27,6 +27,7 @@ import open from "open";
 import Util from "../../Utils/Util";
 
 export enum OnlineJudgeName {
+  librarychecker = "librarychecker",
   codeforces = "codeforces",
   atcoder = "atcoder",
   omegaup = "omegaup",
@@ -114,6 +115,8 @@ export default abstract class OnlineJudge {
              and langAliases as value. Then, we can iterate over it
              instead of writing one line per Online Judge */
     switch (this.onlineJudgeName) {
+      case OnlineJudgeName.librarychecker:
+        return langAliases?.librarychecker;
       case OnlineJudgeName.codeforces:
         return langAliases?.codeforces;
       case OnlineJudgeName.atcoder:
@@ -176,7 +179,7 @@ export default abstract class OnlineJudge {
   }
 
   async submit(filePath: string, url: string, config: Config, langAlias?: string): Promise<void> {
-    const browser = await chromium.launch({ headless: true });
+    const browser = await chromium.launch({ headless: false });
     const context = await this.restoreSession(browser);
 
     const pages = context.pages();
@@ -194,8 +197,10 @@ export default abstract class OnlineJudge {
 
     if (!(await this.isLoggedIn(page))) {
       await this.login();
+      /*
       await context.clearCookies();
       await context.addCookies(this.getSession());
+      */
       await page.goto(url);
     }
 
