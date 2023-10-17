@@ -183,6 +183,18 @@ export default abstract class OnlineJudge {
   }
 
   async submit(filePath: string, url: string, config: Config, langAlias?: string): Promise<void> {
+    if (!langAlias) {
+      langAlias = this.getLangAlias(filePath, config);
+      if (!langAlias) {
+        console.log(
+          `${this.onlineJudgeName} alias for "${Util.getExtensionName(
+            filePath
+          )}" was not found in config file.`
+        );
+        exit(0);
+      }
+    }
+
     const browser = await chromium.launch({ headless: false });
     const context = await this.restoreSession(browser);
 
@@ -209,22 +221,7 @@ export default abstract class OnlineJudge {
     }
 
     try {
-      let result: boolean;
-      if (langAlias) {
-        result = await this.uploadFile(filePath, page, langAlias);
-      } else {
-        const langAliasFromConfig = this.getLangAlias(filePath, config);
-        if (langAliasFromConfig) {
-          result = await this.uploadFile(filePath, page, langAliasFromConfig);
-        } else {
-          console.log(
-            `${this.onlineJudgeName} alias for "${Util.getExtensionName(
-              filePath
-            )}" was not found in config file.`
-          );
-          exit(0);
-        }
-      }
+      let result = await this.uploadFile(filePath, page, langAlias);
       if (result) {
         console.log("File submitted succesfully");
       } else {
