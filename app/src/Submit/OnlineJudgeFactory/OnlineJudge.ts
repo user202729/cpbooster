@@ -183,10 +183,8 @@ export default abstract class OnlineJudge {
 
     if (!(await this.isLoggedIn(page))) {
       await this.login();
-      /*
       await context.clearCookies();
       await context.addCookies(this.getSession());
-      */
       await page.goto(url);
     }
 
