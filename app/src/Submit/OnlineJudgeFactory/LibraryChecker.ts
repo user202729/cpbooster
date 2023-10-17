@@ -17,7 +17,8 @@
  */
 
 import { Page } from "playwright-chromium";
-import OnlineJudge, { OnlineJudgeName } from "./OnlineJudge";
+import OnlineJudge from "./OnlineJudge";
+import { OnlineJudgeName } from "../../Config/Types/OnlineJudgeName";
 import * as fs from "fs";
 
 declare const window: any; // https://stackoverflow.com/a/74080826/5267751
