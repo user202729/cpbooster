@@ -3,6 +3,7 @@ export enum OnlineJudgeName {
   codeforces = "codeforces",
   universaloj = "universaloj",
   ucup = "ucup",
+  vjudge = "vjudge",
   atcoder = "atcoder",
   omegaup = "omegaup",
   szkopul = "szkopul",

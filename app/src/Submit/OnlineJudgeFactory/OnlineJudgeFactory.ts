@@ -22,6 +22,7 @@ import AtCoder from "./AtCoder";
 import Codeforces from "./Codeforces";
 import UniversalOJ from "./UniversalOJ";
 import Ucup from "./Ucup";
+import Vjudge from "./Vjudge";
 import OmegaUp from "./OmegaUp";
 import Szkopul from "./Szkopul";
 import Yandex from "./Yandex";
@@ -40,6 +41,8 @@ export default class OnlineJudgeFactory {
       return new UniversalOJ();
     } else if (url.includes("contest.ucup.ac")) {
       return new Ucup();
+    } else if (url.includes("vjudge.net")) {
+      return new Vjudge();
     } else if (url.includes("omegaup")) {
       return new OmegaUp();
     } else if (url.includes("szkopul.edu.pl")) {

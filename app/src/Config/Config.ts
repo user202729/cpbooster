@@ -71,6 +71,7 @@ export default class Config {
           atcoder: "5001",
           omegaup: "cpp17-gcc",
           szkopul: "C++",
+          vjudge: "61/cpp/C++20",
           yandex: "gcc7_3"
         },
         type: "compiled",
