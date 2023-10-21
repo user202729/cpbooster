@@ -189,7 +189,7 @@ export default abstract class OnlineJudge {
     }
 
     try {
-      let result = await this.uploadFile(filePath, page, langAlias);
+      const result = await this.uploadFile(filePath, page, langAlias);
       if (result) {
         console.log("File submitted succesfully");
       } else {

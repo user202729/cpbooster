@@ -26,10 +26,7 @@ declare const window: any; // https://stackoverflow.com/a/74080826/5267751
 export default class LibraryChecker extends OnlineJudge {
   readonly onlineJudgeName = OnlineJudgeName.librarychecker;
   readonly loginUrl = "https://judge.yosupo.jp/login";
-  readonly blockedResourcesOnSubmit: Set<string> = new Set([
-    "image",
-    "font"
-  ]);
+  readonly blockedResourcesOnSubmit: Set<string> = new Set(["image", "font"]);
 
   async isLoggedIn(page: Page): Promise<boolean> {
     return true;
@@ -43,18 +40,20 @@ export default class LibraryChecker extends OnlineJudge {
   async uploadFile(filePath: string, page: Page, langAlias: string): Promise<boolean> {
     try {
       const fileContent = await fs.promises.readFile(filePath, "utf8");
-      await page.locator('form section div.monaco-editor').waitFor();
+      await page.locator("form section div.monaco-editor").waitFor();
 
       //await page.evaluate('monaco.editor.getEditors()[0].setValue(' + JSON.stringify(fileContent) + ')')  // https://stackoverflow.com/a/74082778 (no idea how to pass in arguments apart from JSON.stringify)
-      await page.evaluate(fileContent => window.monaco.editor.getEditors()[0].setValue(fileContent),
-                          fileContent)
-      await page.locator('form div.MuiSelect-select + input').fill(langAlias);
+      await page.evaluate(
+        (fileContent) => window.monaco.editor.getEditors()[0].setValue(fileContent),
+        fileContent
+      );
+      await page.locator("form div.MuiSelect-select + input").fill(langAlias);
 
-      await page.locator('form button[type=submit]', { hasText: /^Submit$/ }).click();
+      await page.locator("form button[type=submit]", { hasText: /^Submit$/ }).click();
       await page.waitForLoadState("domcontentloaded");
 
       console.log("done");
-      await new Promise(p=>setTimeout(p, 20000));
+      await new Promise((p) => setTimeout(p, 20000));
 
       return true;
     } catch (e) {
