@@ -143,7 +143,7 @@ export default abstract class OnlineJudge {
   }
 
   async login(): Promise<void> {
-    const browser = await chromium.launch({ headless: true });
+    const browser = await chromium.launch({ headless: false });
     const context = await this.restoreSession(browser);
 
     context.on("page", (_) => this.closeAllOtherTabs(context));
@@ -170,7 +170,7 @@ export default abstract class OnlineJudge {
   }
 
   async submit(filePath: string, url: string, config: Config, langAlias?: string): Promise<void> {
-    const browser = await chromium.launch({ headless: false });
+    const browser = await chromium.launch({ headless: true });
     const context = await this.restoreSession(browser);
 
     const pages = context.pages();
