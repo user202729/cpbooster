@@ -50,9 +50,6 @@ export default class LibraryChecker extends OnlineJudge {
       await page.locator('form button[type=submit]', { hasText: /^Submit$/ }).click();
       await page.waitForLoadState("domcontentloaded");
 
-      console.log("done");
-      await new Promise(p=>setTimeout(p, 20000));
-
       return true;
     } catch (e) {
       console.log(e);
