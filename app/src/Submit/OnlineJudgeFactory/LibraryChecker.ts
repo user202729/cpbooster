@@ -32,12 +32,9 @@ export default class LibraryChecker extends OnlineJudge {
   ]);
 
   async isLoggedIn(page: Page): Promise<boolean> {
-    return true;
-    /*
     return (await 
             page.locator('header.MuiPaper-root button', { hasText: /^Login$/ }).count()
            ) === 0;
-           */
   }
 
   async uploadFile(filePath: string, page: Page, langAlias: string): Promise<boolean> {
